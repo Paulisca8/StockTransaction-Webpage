@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>注册</title>
+  <style>
+    body {
+      background-color: rgb(237, 240, 245);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .register-main {
+      background-color: rgb(255, 255, 255);
+      padding: 30px;
+      margin-left: 30px;
+      margin-right: 30px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .title {
+      font-size: 32px;
+      font-weight: bold;
+      color: rgb(49, 65, 88);
+      margin-bottom: 20px;
+    }
+
+    .form-item {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .label {
+      font-weight: bold;
+      font-size: 24px;
+      color: rgb(49, 65, 88);
+      margin-bottom: 5px;
+    }
+
+    .input {
+      position: relative;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 250px;
+      padding: 12px;
+      border: 1px solid rgb(49, 65, 88);
+      border-radius: 4px;
+    }
+
+    .warn {
+      font-size: 12px;
+      color: red;
+      margin-top: 4px;
+    }
+
+    .password-toggle {
+      cursor: pointer;
+      color: rgb(49, 65, 88);
+    }
+
+    #register-button {
+      background-color: rgb(49, 65, 88);
+      color: rgb(237, 240, 245);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .check-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="register-main center">
+    <div class="title center">
+      欢迎注册
+    </div>
+    <div class="form center">
+      <div class="form-item">
+        <div class="label">
+          <label for="username">用户名</label>
+        </div>
+        <div class="input">
+          <input type="text" placeholder="请输入用户名" id="username" name="username" oninput="hideWarn('username-warn')"><br>
+          <span class="warn" id="username-warn"></span>
+        </div>
+      </div>
+      <div class="form-item">
+        <div class="label">
+          <label for="password">创建密码</label>
+        </div>
+        <div class="input">
+          <input type="password" placeholder="请输入3-10位密码" id="password" name="password"
+            oninput="hideWarn('password-warn')"><br>
+          <span class="warn" id="password-warn"></span>
+        </div>
+      </div>
+      <div class="form-item">
+        <div class="label">
+          <label for="check">确认密码</label>
+        </div>
+        <div class="input">
+          <input type="password" placeholder="请确认登录密码" name="check" id="repassword"
+            oninput="hideWarn('repassword-warn')"><br>
+          <span class="warn" id="repassword-warn"></span>
+        </div>
+      </div>
+      <div class="check-item">
+        <input type="checkbox" id="show-password-toggle">
+        <label for="show-password-toggle" class="password-toggle">显示密码</label>
+      </div>
+      <div class="form-item">
+        <button id="register-button" onclick="submitRegistration()">注册</button>
+      </div>
+    </div>
+  </div>
+  <script src="./scripts/Register.js"></script>
+</body>
+
+</html>

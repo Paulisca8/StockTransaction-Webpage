@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>个股实时行情</title>
+    <script src="./scripts/Stockscripts.js"></script>
+    <script src="./scripts/chart.js"></script>
+    <script src="./scripts/jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="./css/Stock.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="header-middle-transaction">
+        <div class="header">
+            <div class="menu-button">
+                <button id="home" onclick="Home()">主页</button>
+            </div>
+            <div class="stock-search">
+                <h4 style="font-size: 20px;margin: 0px;padding-right: 5px;white-space: nowrap;">个股查询</h4>
+                <input type="text" id="stockCodeInput" placeholder="输入股票代码" style="margin: 5px;" autocomplete="off"
+                    pattern="\d{6}" maxlength="6" title="请输入六位股票代码">
+                <button onclick="searchStock()">搜索</button>
+                <div class="icon" style="display: flex;">
+                    <span class="search-icon"></span>
+                </div>
+            </div>
+            <div id="welcome" class="welcome">
+                <h4 id="welcome-name" style="font-size: 20px;margin: 0px;padding-right: 5px;white-space: nowrap;"></h4>
+                <button class="logout-button" id="logout-button" onclick="logout()" style="display: none;">注销</button>
+            </div>
+            <div class="header-buttons">
+                <button id="register-button" onclick="location.href='Register.html'">注册</button>
+                <div class="icon" style="display: flex;">
+                    <span class="register-icon"></span>
+                </div>
+                <button id="login-button" onclick="location.href='Login.html'">登录</button>
+                <div class="icon" style="display: flex;">
+                    <span class="login-icon"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="middle-transaction">
+        <div class="middle">
+            <div class="head">
+                <h2 id="stock" style="font-weight: bold;"></h2>
+            </div>
+            <div class="stock-info">
+                <div class="basic-info">
+                    <h3 id="name"></h3>
+                    <h4 id="code"></h4>
+                </div>
+                <div class="picture">
+                    <img id="arrow" src="./images/up.svg">
+                </div>
+                <div>
+                    <div>
+                        <div class="price">
+                            <h3 id="price-now"></h3>
+                            <h4 id="change-percent"></h4>
+                        </div>
+                    </div>
+                    <div class="time">
+                        <h4 id="cur-time"></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-show">
+                <div class="chart-type">
+                    <ul class="chart-type-list" style="margin:10px">
+                        <li class="typeitem" onclick="createStockChart('all')"><a href="javascript: void(0)">全部</a>
+                        </li>
+                        <li class="typeitem" onclick="createStockChart('50')"><a href="javascript: void(0)">近50</a>
+                        </li>
+                        <li class="typeitem" onclick="createStockChart('100')"><a href="javascript: void(0)">近100</a>
+                        </li>
+                        <li class="typeitem" onclick="createStockChart('200')"><a href="javascript: void(0)">近200</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="chart" style="width:650px;">
+                    <canvas id="stockChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="transaction-show" style="display: none;">
+            <h2 style="font-weight: bold;">交易</h2>
+            <div class="form-group">
+                <label for="price">挂单单价</label>
+                <input type="number" id="price" name="price" step="0.01" min="0" required>
+                <br>
+                <span class="warn" id="price-warn"></span>
+                <br>
+                <label for="quantity">买卖数量</label>
+                <input type="number" id="quantity" name="quantity" step="1" min="1" required>
+                <br>
+                <span class="warn" id="quantity-warn"></span>
+            </div>
+            <div class="transaction-submit" style="display: flex;align-items: center;">
+                <div class="type-choose" style="display: flex;align-items: center;">
+                    <label for="transaction-type" style="white-space: nowrap;margin-right: 5px;">交易类型</label>
+                    <select id="transaction-type" name="transaction-type" required>
+                        <option value="buy">买入</option>
+                        <option value="sell">卖出</option>
+                    </select>
+                </div>
+                <span class="help-icon"></span>
+                <div class="help-box">
+                    <p>废单:挂单价格超出涨跌幅限制</p>
+                    <p>买入时:</p>
+                    <p>委托成功:挂单金额小于股票实时价格</p>
+                    <p>余额不足:账户余额小于（股票实时价格*挂单数量）</p>
+                    <p>卖出时:</p>
+                    <p>持仓余额不足:用户未持有指定股票 或 持有数量小于挂单数量</p>
+                    <p>委托成功:挂单价格大于股票实时价格</p>
+                    <p>其它情况:交易成功</p>
+                </div>
+                <button id="submit" onclick="submit()">确认交易</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

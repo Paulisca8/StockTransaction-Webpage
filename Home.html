@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>主页</title>
+	<link rel="stylesheet" href="./css/Home.css">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<script src="./scripts/jquery-3.6.1.min.js"></script>
+	<script src="./scripts/Homescripts.js"></script>
+</head>
+
+<body>
+	<div class="menu-content">
+		<div class="menu-container">
+			<div class="menu">
+				<div class="menu-head">
+					<h4 style="font-size: 20px;margin: 0px;">菜单</h4>
+				</div>
+				<div class="menu-item" onclick="toggleStockShow()">
+					<h4 style="font-size: 20px;margin: 0px;">股票行情</h4>
+				</div>
+				<div class="menu-item" id="login-item" onclick="location.href='Login.html'">
+					<h4 style="font-size: 20px;margin: 0px;">登录</h4>
+				</div>
+				<div class="menu-item" id="transaction-item" onclick="toggleTransaction()" style="display: none;">
+					<h4 style="font-size: 20px;margin: 0px;">交易记录</h4>
+				</div>
+				<div class="menu-item" id="personal-item" onclick="togglePersonal()" style="display: none;">
+					<h4 style="font-size: 20px;margin: 0px;">个人信息</h4>
+				</div>
+			</div>
+		</div>
+		<div class="header-content">
+			<div class="header">
+				<div class="menu-button">
+					<img src="./images/menu-icon-left.svg" alt="菜单按钮" onclick="toggleMenu()">
+				</div>
+				<div class="stock-search">
+					<h4 style="font-size: 20px;margin: 0px;padding-right: 5px;">个股查询</h4>
+					<input type="text" id="stockCodeInput" placeholder="输入股票代码" style="margin: 5px;" autocomplete="off"
+						pattern="\d{6}" maxlength="6" title="请输入六位股票代码">
+					<button onclick="searchStock()">搜索</button>
+					<div class="icon" style="display: flex;">
+						<span class="search-icon"></span>
+					</div>
+				</div>
+				<div id="welcome" class="welcome">
+					<h4 id="welcome-name" style="font-size: 20px;margin: 0px;padding-right: 5px;"></h4>
+					<button id="logout-button" onclick="logout()" style="display: none;">注销</button>
+				</div>
+				<div class="header-buttons">
+					<button id="register-button" onclick="location.href='Register.html'">注册</button>
+					<div class="icon" style="display: flex;">
+						<span class="register-icon"></span>
+					</div>
+					<button id="login-button" onclick="location.href='Login.html'">登录</button>
+					<div class="icon" style="display: flex;">
+						<span class="login-icon"></span>
+					</div>
+				</div>
+			</div>
+			<div class="content">
+				<div class="stock-show">
+					<h3 style="font-size: 25px;margin: 10px;font-weight: bold;">股票行情</h3>
+					<div class="time-container">
+						<p id="countdown1"></p>
+						<p id="time1"></p>
+					</div>
+					<div class="stock-type">
+						<ul class="stock-type-list">
+							<li class="typeitem" onclick="showMarketPrice('all')"><a href="javascript: void(0)">全部</a>
+							</li>
+							<li class="typeitem" onclick="showMarketPrice('沪市')"><a href="javascript: void(0)">沪市</a>
+							</li>
+							<li class="typeitem" onclick="showMarketPrice('深市')"><a href="javascript: void(0)">深市</a>
+							</li>
+							<li class="typeitem" onclick="showMarketPrice('创业板')"><a href="javascript: void(0)">创业板</a>
+							</li>
+						</ul>
+					</div>
+					<table id="MarketPrice" class="table table-bordered">
+						<tr>
+							<th>股票代码</th>
+							<th>股票名称</th>
+							<th>最新价格</th>
+							<th>当日涨跌幅</th>
+							<th>当日涨跌价</th>
+						</tr>
+					</table>
+					<br /><br />
+				</div>
+				<div class="transaction" style="display: none;">
+					<div class="transaction-head">
+						<h3 style="font-size: 25px;margin: 10px;font-weight: bold;">交易记录</h3>
+					</div>
+					<table id="transaction-record-tab" class="table table-bordered">
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>股票名称</th>
+								<th>股票代码</th>
+								<th>交易方向</th>
+								<th>份数</th>
+								<th>成交价格</th>
+								<th>挂单价格</th>
+								<th>交易状态</th>
+								<th>交易时间</th>
+								<th>交易单号</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- 交易记录将在此处动态填充 -->
+						</tbody>
+					</table>
+				</div>
+				<div class="personal" style="display: none;">
+					<div class="personal-head">
+						<h3 style="font-size: 25px; margin: 10px; font-weight: bold;">个人信息</h3>
+					</div>
+					<div class="personal-info">
+						<div class="user-info">
+							<h4>基本信息</h4>
+							<p id="user-name"></p>
+							<p id="balance">账户余额:1000000.00元</p>
+						</div>
+						<div class="stock-info">
+							<h4>持股信息</h4>
+							<div class="time-container">
+								<p id="countdown2"></p>
+								<p id="time2"></p>
+							</div>
+							<table id="stock-tab">
+								<tr>
+									<th>股票代码</th>
+									<th>股票名称</th>
+									<th>持仓量</th>
+									<th>当前价格</th>
+									<th>持仓均价</th>
+									<th>盈亏</th>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</html>

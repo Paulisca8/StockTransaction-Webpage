@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>登录</title>
+  <style>
+    body {
+      background-color: rgb(237, 240, 245);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-form {
+      background-color: rgb(255, 255, 255);
+      padding: 30px;
+      margin-left: 30px;
+      margin-right: 30px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .form-item {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .label {
+      font-weight: bold;
+      font-size: 24px;
+      color: rgb(49, 65, 88);
+      margin-bottom: 5px;
+    }
+
+    .input_text {
+      width: 250px;
+      padding: 12px;
+      border: 1px solid rgb(49, 65, 88);
+      border-radius: 4px;
+    }
+
+    .warn {
+      font-size: 12px;
+      color: red;
+      margin-top: 4px;
+    }
+
+    #login-button {
+      background-color: rgb(49, 65, 88);
+      color: rgb(237, 240, 245);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .register-link {
+      margin-top: 10px;
+    }
+
+    .register-link a {
+      color: rgb(49, 65, 88);
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-form">
+    <div class="form-item">
+      <div class="label"><label>用户名</label></div>
+      <input type="text" class="input_text" placeholder="请输入用户名" autocomplete="off" id="uname" value="">
+      <span class="warn" id="username-warn"></span>
+    </div>
+    <div class="form-item">
+      <div class="label"><label>密码</label></div>
+      <input type="password" class="input_text" placeholder="请输入密码" autocomplete="off" id="passwd" value="">
+      <span class="warn" id="password-warn"></span>
+    </div>
+    <button id="login-button">登录</button>
+    <div class="register-link">
+      <a href="Register.html" onclick="redirectToRegister()" style="display: inline;">注册账号</a>
+    </div>
+  </div>
+  <!-- ATTENTION:确保将js代码放置在HTML代码之后，或者将js代码包裹在DOMContentLoaded事件处理程序中，以确保在DOM加载完成后再执行js代码。 -->
+  <script src="./scripts/Login.js"></script>
+</body>
+
+</html>
