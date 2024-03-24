@@ -1,0 +1,269 @@
+    /* ATTENTION:用于解决菜单栏不置底 */
+    html, body {
+    height: 100%;
+    }
+
+    body {
+    position: relative;
+    height: 800px; /* 设置为你想要的固定高度 */
+    }
+
+    .menu-content {
+    display: flex;
+    }
+
+    h2,h3,h4{
+    margin-bottom: 0px ;
+    padding:5px;
+    white-space: nowrap;
+    }
+    .menu-container {
+    /* 设置菜单栏的样式和宽度 */
+    width: 200px;
+    background-color: rgb(49,65,88);
+    color:white;
+    display: none;
+    position: relative;
+    }
+    .menu{
+    width:200px;
+    height: 800px;
+    }
+    .menu-head,.menu-item{
+    height: 63.2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:rgb(237,240,245);
+    transition: background-color 0.3s ease;
+    }
+    .menu-item:hover{
+    background-color: rgb(68,84,104);
+    }
+    .content{
+    display: flex;
+    }
+    .header {
+    /* 设置头部的样式和宽度 */
+    width: 100%; /* 减去菜单栏的宽度 */
+    background-color: rgb(237,240,245);
+    padding: 12px;
+    color:rgb(49,65,88) ;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    height: 63.2px;
+    }
+    .header-buttons,.stock-search,.welcome{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-left:20px;
+    margin-right:20px;
+    }
+
+    .menu-button{
+    position: absolute;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    height: 60%;
+    }
+    .header-buttons>button,
+    .stock-search>button,
+    #logout-button {
+    background-color: rgb(49, 65, 88);
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+    transition: box-shadow 0.3s ease-in-out; /* 添加过渡效果 */
+    height: 100%;
+    width: 100%;
+    padding:8px;
+    display: flex;
+    align-items: center;
+    }
+
+    /* 鼠标悬停时按钮阴影效果变化 */
+    .header-buttons>button:hover,
+    .stock-search>button:hover,
+    #logout-button:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 鼠标悬停时阴影效果变化 */
+    }
+
+    .login-icon 
+    {
+    width: 22px; /* 调整图标的宽度 */
+    height: 22px; /* 调整图标的高度 */
+    background-image: url(../images/login.svg); /* 设置登录图标的路径 */
+    background-size: cover; /* 确保图标填充整个容器 */
+    }
+    .register-icon{
+    width: 24px; /* 调整图标的宽度 */
+    height: 24px; /* 调整图标的高度 */
+    background-image: url(../images/register.svg); /* 设置注册图标的路径 */
+    background-size: cover; /* 确保图标填充整个容器 */
+    }
+    .search-icon {
+    width: 24px; /* 调整图标的宽度 */
+    height: 24px; /* 调整图标的高度 */
+    background-image: url(../images/search.svg); /* 设置登录图标的路径 */
+    background-size: cover; /* 确保图标填充整个容器 */
+    }
+    .stock-show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    }
+    .stock-type{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    #stockCodeInput {
+    padding:6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+    }
+
+    /* 获得焦点时输入框边框颜色变化 */
+    #stockCodeInput:focus {
+    outline: none;
+    border-color: #5c9ded;
+    box-shadow: 0 0 6px rgba(92, 157, 237, 0.5);
+    }
+
+    /* 鼠标悬停时输入框边框颜色变化 */
+    #stockCodeInput:hover {
+    border-color: #999;
+    }
+
+    .time-container {
+    display: flex;
+    align-items: center;
+    gap:10px;
+    }
+
+    .picture{
+        display: flex;
+    }
+    .time-container p {
+    margin-bottom: 10px;
+    }
+    .stock-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    }
+
+    .stock-type-list {
+    display: inline-block; 
+    list-style-type: none; 
+    padding: 0; 
+    }
+
+    .typeitem {
+    display: inline-block;
+    margin: 0 10px; 
+    text-align: center;
+    }
+    li a {
+    display: inline;
+    font-weight: bold;
+    color: #000000;
+    padding: 4px 8px;
+    }
+    li a:hover {
+    background-color: rgb(49,65,88);
+    color: white;
+    text-decoration: none;
+    }
+    li a:active{color:white}
+
+    #MarketPrice {
+    margin: 0 auto;
+    table-layout: fixed; 
+    width: 50%; 
+    }
+    #transaction-record-tab{
+    margin: 0 auto;
+    table-layout: fixed; 
+    width: 70%; 
+    }
+    th,td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    }
+
+    th {
+    background-color: #f5f5f5;
+    vertical-align: middle;
+    }
+
+    tr:nth-child(odd) {
+    background-color: #f9f9f9;
+    }
+    #MarketPrice th,#transaction-record-tab th,
+    #MarketPrice td,#transaction-record-tab td,
+    #stock-tab th,#stock-tab td {
+    padding: 8px; 
+    text-align: center;
+    vertical-align: middle;
+    }
+
+    #MarketPrice th a,
+    #MarketPrice td a {
+    color: inherit;
+    text-decoration: none;
+    }
+
+    #MarketPrice th a:hover,
+    #MarketPrice td a:hover {
+    text-decoration: underline;
+    }
+    .transaction td.small-font {
+    font-size: 14px; /* 根据需要调整字体大小 */
+    }
+    .transaction,.personal{
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    flex:1;
+    }
+
+    .personal-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+    }
+
+    .personal-info h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    padding: 0px;
+    }
+
+    .user-info,.stock-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    .stock-info{
+        gap:10px;
+    }
+    .user-info p {
+    margin: 5px 0;
+    }
+
+    .stock-info table {
+    table-layout: fixed; 
+    width: 40%; 
+    }
+

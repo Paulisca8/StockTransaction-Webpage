@@ -1,0 +1,290 @@
+.header-middle-transaction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.header {
+    /* 设置头部的样式和宽度 */
+    width: 100%;
+    background-color: rgb(237, 240, 245);
+    padding: 12px;
+    color: rgb(49, 65, 88);
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    height: 63.2px;
+}
+
+.header-buttons,
+.stock-search,
+.welcome {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.menu-button {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    height: 60%;
+}
+
+.header-buttons>button,
+.stock-search>button,
+#logout-button,
+#home,
+#submit {
+    background-color: rgb(49, 65, 88);
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* 添加阴影效果 */
+    transition: box-shadow 0.3s ease-in-out;
+    /* 添加过渡效果 */
+    height: 100%;
+    width: 100%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.header-buttons>button,
+.stock-search>button,
+#logout-button,
+#home,
+#submit:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    /* 鼠标悬停时阴影效果变化 */
+}
+
+.search-icon {
+    width: 24px;
+    /* 调整图标的宽度 */
+    height: 24px;
+    /* 调整图标的高度 */
+    background-image: url(../images/search.svg);
+    /* 设置登录图标的路径 */
+    background-size: cover;
+    /* 确保图标填充整个容器 */
+}
+
+.login-icon {
+    width: 22px;
+    /* 调整图标的宽度 */
+    height: 22px;
+    /* 调整图标的高度 */
+    background-image: url(../images/login.svg);
+    /* 设置登录图标的路径 */
+    background-size: cover;
+    /* 确保图标填充整个容器 */
+}
+
+.register-icon {
+    width: 24px;
+    /* 调整图标的宽度 */
+    height: 24px;
+    /* 调整图标的高度 */
+    background-image: url(../images/register.svg);
+    /* 设置注册图标的路径 */
+    background-size: cover;
+    /* 确保图标填充整个容器 */
+}
+
+.middle-transaction {
+    display: flex;
+    gap: 70px;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+
+.middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+.stock-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    gap: 10px;
+}
+
+.basic-info,
+.price,
+.time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.price {
+    gap: 5px;
+}
+
+.basic-info {
+    flex-direction: column;
+}
+
+h3 {
+    padding: 5px;
+}
+
+.stock-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.stock-type-list {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0;
+}
+
+.typeitem {
+    display: inline-block;
+    margin: 0 10px;
+    text-align: center;
+}
+
+li a {
+    display: inline;
+    font-weight: bold;
+    color: #000000;
+    padding: 4px 8px;
+}
+
+li a:hover {
+    background-color: rgb(49, 65, 88);
+    color: white;
+    text-decoration: none;
+}
+
+li a:active {
+    color: white
+}
+
+.chart-show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.transaction-show label {
+    font-size: 20px;
+}
+
+.transaction-show {
+    display: flex;
+    background-color: rgb(237, 240, 245);
+    padding: 30px;
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+input {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* 获得焦点时输入框边框颜色变化 */
+input:focus {
+    outline: none;
+    border-color: #5c9ded;
+    box-shadow: 0 0 6px rgba(92, 157, 237, 0.5);
+}
+
+/* 鼠标悬停时输入框边框颜色变化 */
+input:hover {
+    border-color: #999;
+}
+
+.warn {
+    font-size: 12px;
+    color: red;
+}
+
+#transaction-type {
+    appearance: none;
+    /* 隐藏默认的下拉箭头 */
+    padding: 4px;
+    padding-left: 12px;
+    padding-right: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    background-image: url('../images/choose.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+    cursor: pointer;
+}
+
+/* 鼠标悬停时下拉列表框边框颜色变化 */
+#transaction-type:hover {
+    border-color: #999;
+}
+
+/* 获得焦点时下拉列表框边框颜色变化 */
+#transaction-type:focus {
+    outline: none;
+    border-color: #5c9ded;
+    box-shadow: 0 0 6px rgba(92, 157, 237, 0.5);
+}
+
+.transaction-submit {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.help-box {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+    z-index: 1;
+    font-size: 14px;
+    flex-direction: row;
+}
+
+.help-icon {
+    display: inline-block;
+    padding: 10px;
+    background-image: url("../images/help.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.help-icon:hover+.help-box {
+    display: block;
+}
